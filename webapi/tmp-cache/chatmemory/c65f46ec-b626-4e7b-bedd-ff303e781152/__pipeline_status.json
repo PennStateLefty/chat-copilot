@@ -1,0 +1,83 @@
+{
+  "index": "chatmemory",
+  "document_id": "c65f46ec-b626-4e7b-bedd-ff303e781152",
+  "execution_id": "421f9869f7854fcca78450dfb327d14d",
+  "steps": [
+    "extract",
+    "partition",
+    "gen_embeddings",
+    "save_embeddings"
+  ],
+  "remaining_steps": [],
+  "completed_steps": [
+    "extract",
+    "partition",
+    "gen_embeddings",
+    "save_embeddings"
+  ],
+  "tags": {
+    "chatid": [
+      "8987066f-f4c5-4343-8dc0-d3e526349e57"
+    ],
+    "memory": [
+      "WorkingMemory"
+    ]
+  },
+  "creation": "2023-10-02T19:04:38.46589+00:00",
+  "last_update": "2023-10-02T19:04:38.624506+00:00",
+  "files": [
+    {
+      "id": "47226ca15d164a7790841cc235d2421f",
+      "name": "memory.txt",
+      "size": 769,
+      "mime_type": "text/plain",
+      "artifact_type": "Undefined",
+      "processed_by": [
+        "extract"
+      ],
+      "generated_files": {
+        "memory.txt.extract.txt": {
+          "id": "5ff9d297cd074e3991abb73b6c9661b0",
+          "name": "memory.txt.extract.txt",
+          "size": 769,
+          "mime_type": "text/plain",
+          "artifact_type": "ExtractedText",
+          "parent_id": "47226ca15d164a7790841cc235d2421f",
+          "content_sha256": "",
+          "processed_by": [
+            "extract",
+            "partition"
+          ]
+        },
+        "memory.txt.partition.0.txt": {
+          "id": "e624a3cf98d247449cc944260e16e29c",
+          "name": "memory.txt.partition.0.txt",
+          "size": 769,
+          "mime_type": "text/plain",
+          "artifact_type": "TextPartition",
+          "parent_id": "47226ca15d164a7790841cc235d2421f",
+          "content_sha256": "d41b3be429e5acd690124df21bf7061d8a9090d0f90d9cb802a9ce9570297fbe",
+          "processed_by": [
+            "partition",
+            "gen_embeddings"
+          ]
+        },
+        "memory.txt.partition.0.txt.OpenAI.TextEmbedding.AzureTextEmbeddingGeneration.TODO.text_embedding": {
+          "id": "773e6b648a5440449183fbdeb363fb81",
+          "name": "memory.txt.partition.0.txt.OpenAI.TextEmbedding.AzureTextEmbeddingGeneration.TODO.text_embedding",
+          "size": 19686,
+          "mime_type": "float[]",
+          "artifact_type": "TextEmbeddingVector",
+          "parent_id": "47226ca15d164a7790841cc235d2421f",
+          "content_sha256": "",
+          "processed_by": [
+            "gen_embeddings",
+            "save_embeddings"
+          ]
+        }
+      }
+    }
+  ],
+  "custom_data": {},
+  "previous_executions_to_purge": []
+}

@@ -1,0 +1,63 @@
+Overview:
+
+One of the many areas of synergy between KeyBank and FNFG is in the
+Leasing business.  During the evaluation of software platforms
+supporting the FNFG business Key did not simply assume that incumbent
+platforms were superior.  Leasing is a case of this "best of breed"
+approach.
+
+In late 2014 and into early 2015 KeyBank was conducting an RFP for
+platforms in the Leasing space with the aim of replacing the core
+systems supporting the business:  LeasePak, ExpressLink, and CT Vision.
+With the announcement of the merger the pursuit of a replacement was
+tabled.  However, during deeper discovery the teams found that FNFG had
+recently upgraded their leasing business onto one of the platforms Key
+had been investigating.  As such, rather than migrate the portfolio of
+customers and deals from the FNFG system and onto the existing Key
+platforms, leadership determined to retain the FNFG system with the aim
+of eventually migrating the Key portfolio instead.
+
+From a business perspective this means running parallel systems:  the
+legacy Key platforms, and the FNFG LeaseTeam Aspire platform. Management
+of the business still needs to occur at the macro level and so to
+accomplish this data from Aspire will be integrated with existing
+business support systems in the Leasing domain.  These integrations will
+be the focus of this solution architecture document.
+
+Architecture Goals
+
+Integrity: There is inherently risk in running a business across
+separate systems.  Failure to provide a holistic view of the portfolio
+could lead to underwriting decisions that are not aligned with Key's
+risk profile.  As such, the primary architecture goal for this
+integration is complete data replication from the Aspire vendor into our
+internal decision support systems.
+
+
+Architecture Constraints and Variances:
+
+Resiliency: FNFG chose a vendor hosted ASP model in their deployment of
+Aspire.  To make the dates for the integration that model will carry
+forward.  Technical discussions with vendor have raised concerns within
+EA around the resiliency of the vendor's hosting model.  While the
+vendor is capable of sub-24 hour RTOs the RPO is considerably less
+robust.  Instead of regular log shipping at the SQL level LeaseTeam has
+chosen to do a once a day extract and transmit of their SQL logs to the
+recovery site.  When pressed on whether they could do better than a 24
+hr. RPO the vendor admitted some investigation work had been done, but
+nothing was in their development pipeline or roadmap to address the
+deficiency.
+Scalability:  The Aspire product from LeaseTeam has an unusual design
+for a "modern" application.  For the purposes of this section the
+application will be split into two logical components:  the client
+component, and the batch component.
+
+The back office client used by FNFG/Key staff is a thick-client written
+using Microsoft's Windows Presentation Foundation (WPF).  This client
+communicates with the application server exclusively through web
+services.  In theory, a thick-client allows for a greater offload of
+work to the client.  Robust state, fewer server calls, and fast UX are
+normal hallmarks of thick clients.  However, hands on use of the Aspire system has demonstrated none of these benefits.  Navigation to data
+grids representing major entities, such as customer, do a complete pull
+from the server tables.  The amount of time taken to response, and
+correspondingly the amount of data returned, are proportional to the

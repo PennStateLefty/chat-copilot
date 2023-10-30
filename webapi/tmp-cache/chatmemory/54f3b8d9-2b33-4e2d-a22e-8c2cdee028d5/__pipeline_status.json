@@ -1,0 +1,109 @@
+{
+  "index": "chatmemory",
+  "document_id": "54f3b8d9-2b33-4e2d-a22e-8c2cdee028d5",
+  "execution_id": "e5d3840196e74f9ea67196403ded18b2",
+  "steps": [
+    "extract",
+    "partition",
+    "gen_embeddings",
+    "save_embeddings"
+  ],
+  "remaining_steps": [],
+  "completed_steps": [
+    "extract",
+    "partition",
+    "gen_embeddings",
+    "save_embeddings"
+  ],
+  "tags": {
+    "chatid": [
+      "8987066f-f4c5-4343-8dc0-d3e526349e57"
+    ],
+    "memory": [
+      "DocumentMemory"
+    ]
+  },
+  "creation": "2023-10-02T19:05:56.961543+00:00",
+  "last_update": "2023-10-02T19:05:57.261902+00:00",
+  "files": [
+    {
+      "id": "f515ce5f5ccb4218996a91620d881e37",
+      "name": "Leasing-SAD-Verbiage.txt",
+      "size": 5055,
+      "mime_type": "text/plain",
+      "artifact_type": "Undefined",
+      "processed_by": [
+        "extract"
+      ],
+      "generated_files": {
+        "Leasing-SAD-Verbiage.txt.extract.txt": {
+          "id": "9af27ecaf3614d14a4c444db5ae75687",
+          "name": "Leasing-SAD-Verbiage.txt.extract.txt",
+          "size": 5055,
+          "mime_type": "text/plain",
+          "artifact_type": "ExtractedText",
+          "parent_id": "f515ce5f5ccb4218996a91620d881e37",
+          "content_sha256": "",
+          "processed_by": [
+            "extract",
+            "partition"
+          ]
+        },
+        "Leasing-SAD-Verbiage.txt.partition.0.txt": {
+          "id": "a04ca4ce032142fe8f110b6ea95e478b",
+          "name": "Leasing-SAD-Verbiage.txt.partition.0.txt",
+          "size": 3459,
+          "mime_type": "text/plain",
+          "artifact_type": "TextPartition",
+          "parent_id": "f515ce5f5ccb4218996a91620d881e37",
+          "content_sha256": "19f15fb34d7cd9f24a552cc415039f1d3ab5ae1f6f82ee31d81284c78c5b2c20",
+          "processed_by": [
+            "partition",
+            "gen_embeddings"
+          ]
+        },
+        "Leasing-SAD-Verbiage.txt.partition.1.txt": {
+          "id": "64e9467276d94375aa69bb585aec9e17",
+          "name": "Leasing-SAD-Verbiage.txt.partition.1.txt",
+          "size": 1871,
+          "mime_type": "text/plain",
+          "artifact_type": "TextPartition",
+          "parent_id": "f515ce5f5ccb4218996a91620d881e37",
+          "content_sha256": "96c861fe6974592dee1c1474e37befd28bbf16adc00666ff50921ae8a0cf23b2",
+          "processed_by": [
+            "partition",
+            "gen_embeddings"
+          ]
+        },
+        "Leasing-SAD-Verbiage.txt.partition.0.txt.OpenAI.TextEmbedding.AzureTextEmbeddingGeneration.TODO.text_embedding": {
+          "id": "5d7987a3d79f44a587f355d1f750c726",
+          "name": "Leasing-SAD-Verbiage.txt.partition.0.txt.OpenAI.TextEmbedding.AzureTextEmbeddingGeneration.TODO.text_embedding",
+          "size": 19581,
+          "mime_type": "float[]",
+          "artifact_type": "TextEmbeddingVector",
+          "parent_id": "f515ce5f5ccb4218996a91620d881e37",
+          "content_sha256": "",
+          "processed_by": [
+            "gen_embeddings",
+            "save_embeddings"
+          ]
+        },
+        "Leasing-SAD-Verbiage.txt.partition.1.txt.OpenAI.TextEmbedding.AzureTextEmbeddingGeneration.TODO.text_embedding": {
+          "id": "9818eeb3276643ff8779980e00d9c773",
+          "name": "Leasing-SAD-Verbiage.txt.partition.1.txt.OpenAI.TextEmbedding.AzureTextEmbeddingGeneration.TODO.text_embedding",
+          "size": 19572,
+          "mime_type": "float[]",
+          "artifact_type": "TextEmbeddingVector",
+          "parent_id": "f515ce5f5ccb4218996a91620d881e37",
+          "content_sha256": "",
+          "processed_by": [
+            "gen_embeddings",
+            "save_embeddings"
+          ]
+        }
+      }
+    }
+  ],
+  "custom_data": {},
+  "previous_executions_to_purge": []
+}

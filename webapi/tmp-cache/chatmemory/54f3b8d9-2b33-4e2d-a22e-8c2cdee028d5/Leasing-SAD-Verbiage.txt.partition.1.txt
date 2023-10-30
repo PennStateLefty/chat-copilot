@@ -1,0 +1,31 @@
+system has demonstrated none of these benefits.  Navigation to data
+grids representing major entities, such as customer, do a complete pull
+from the server tables.  The amount of time taken to response, and
+correspondingly the amount of data returned, are proportional to the
+total number of records in the database.  Based on the current FNFG
+portfolio, roughly 1/8 the size of Key's, the response time is nearly
+20s. for customer table pulls and the thick-client memory commitment is
+nearly a quarter of a gigabyte.
+
+As with most back office banking functions the Aspire platform is built
+on the concept of "end of day" and "end of month" processes and batches.
+The current FNFG portfolio is able to fit within the batch windows
+allotted, however, there is limited overhead for growth.  These "end of
+*" services run on applications servers.  In the version of Aspire which
+FNFG runs on there is a dispatcher, triggering jobs based on a defined
+sequence to a defined service.  The services can be deployed on
+different servers in the event load could impact other services deployed
+on the same box, however, scaling is not necessarily linear.  The
+underlying data structure, and the application code, are not optimized
+for running in parallel.  As such, in the version running at FNFG, the
+only real scaling potential is vertical and mainly at the database
+level.  The current versions of the Aspire product have done some things
+to address this scaling concern.  Introduction of a Job Stream queue
+enables the dispatcher to break free of sequential execution. 
+Additionally, efforts have been made to "shard" data across two
+dimensions, Finance Company and Date, in order to allow multiple
+instances of the same job to execute across a data set.  The vendor has
+stated that database I/O remains the biggest impediment to scaling
+despite these changes.
+
+Authentication:
